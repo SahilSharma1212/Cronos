@@ -8,6 +8,7 @@ export function middleware(request: NextRequest) {
   const isMainRoute = path.startsWith("/main");
   const isSignInPage = path === "/sign-in";
 
+
   // 🔒 Block access to /main/* if not signed in
   if (isMainRoute && !token) {
     return NextResponse.redirect(new URL("/sign-in", request.url));
