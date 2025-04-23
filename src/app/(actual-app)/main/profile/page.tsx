@@ -1,6 +1,6 @@
 import React from 'react'
-import ProfileDetailsPage from './@profile-details/page'
-import ProfileCapsulesPart from './@profile-capsules-part/page'
+import ProfileDetailsPage from './components/ProfileDetailsPart'
+import ProfileCapsulesPart from './components/ProfileCapsulesPart'
 
 export default function ProfilePage() {
   return (
