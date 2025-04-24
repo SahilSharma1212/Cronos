@@ -70,6 +70,7 @@ export async function POST(request: NextRequest) {
             path: "/", // Cookie is valid for the entire app
             maxAge: 24 * 60 * 60 // 1 day expiration
         });
+        console.log('token : ',token)
 
         return response;
         

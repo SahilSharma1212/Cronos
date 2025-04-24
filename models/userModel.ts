@@ -39,6 +39,7 @@ export interface CronosUserSchemaInterface extends Document {
   friends: string[];
   isPrivateAccount: boolean;
   allCapsules: CronosCapsulesInterface[];
+  friendRequests:string[];
 }
 
 // Capsule Schema
@@ -79,11 +80,12 @@ const CronosUserSchema = new Schema<CronosUserSchemaInterface>({
   email: { type: String, required: true, unique: true},
   password: { type: String, required: true },
   verifyCode: { type: String, required: true },
-  verifyCodeExpiry: { type: Date, required: true },
-  isUserVerified: { type: Boolean, default: false, required: true },
+  verifyCodeExpiry: { type: Date },
+  isUserVerified: { type: Boolean, default: false},
   friends: { type: [String], default: [] },
   isPrivateAccount: { type: Boolean, default: false },
   allCapsules: { type: [CronosCapsuleSchema], default: [] },
+  friendRequests:{type:[String],default:[]}
 });
 
 // Models
