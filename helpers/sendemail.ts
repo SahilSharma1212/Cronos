@@ -2,9 +2,8 @@ import { VerificationCodeEmail } from "../emails/verification-code-email";
 import { ApiResponse } from "@/types/ApiResponse";
 
 import { Resend } from "resend";
-const RESEND_API_KEY = process.env.RESEND_API_KEY || ""
 
-const resend = new Resend(RESEND_API_KEY);
+const resend = new Resend(process.env.RESEND_API_KEY!);
 
 export async function sendVerificationEmail({
   email,
