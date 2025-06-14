@@ -18,7 +18,7 @@ export default function Layout({
         <div className="fixed top-0 left-0 opacity-75 h-screen overflow-x-hidden">
           <BackgroundGradientAnimation />
         </div>
-        <div className="absolute top-0 left-0">
+        <div className="absolute top-0 left-0 z-50">
           <HomePageLayout />
           {children}
         </div>

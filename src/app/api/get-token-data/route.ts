@@ -1,8 +1,7 @@
 import { NextRequest, NextResponse } from "next/server";
 import jwt from "jsonwebtoken";
 
-// Your JWT secret (in real projects, store it in environment variables)
-const TOKEN_SECRET = process.env.JWT_SECRET || "your_token_secret";
+const TOKEN_SECRET = process.env.TOKEN_SECRET || "your_token_secret";
 
 export async function GET(request: NextRequest) {
   // Get the token from cookies

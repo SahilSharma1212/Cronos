@@ -5,7 +5,7 @@ import { Loader2 } from "lucide-react";
 import Image from "next/image";
 import React, { useRef, useState } from "react";
 import toast, { Toaster } from "react-hot-toast";
-import { useSearchParams } from "next/navigation";
+import { useRouter, useSearchParams } from "next/navigation";
 
 export default function Page() {
   const searchParams = useSearchParams()
@@ -13,6 +13,7 @@ export default function Page() {
   const [isLoading, setIsLoading] = useState(false);
   const inputRefs = useRef<HTMLInputElement[]>([]);
   const [otp, setOtp] = useState<string[]>(Array(6).fill(""));
+  const router = useRouter()
 
   const showToast = (toastText: string) => toast(toastText);
 
@@ -68,6 +69,7 @@ export default function Page() {
       } else {
         console.log("Verification successful");
         showToast(verificationCodeResponse.data.message);
+        router.push("/sign-in")
       }
     } catch (error) {
       console.log("Request failed:", error);

@@ -27,7 +27,10 @@ export interface CronosCapsulesInterface extends Document {
   hasBeenOpened: boolean;
   imagesArray: ImageDetailsType[];
 }
-
+export interface friendRequestInterface {
+  type:string;
+  user:string
+}
 // User Interface
 export interface CronosUserSchemaInterface extends Document {
   username: string;
@@ -39,7 +42,7 @@ export interface CronosUserSchemaInterface extends Document {
   friends: string[];
   isPrivateAccount: boolean;
   allCapsules: CronosCapsulesInterface[];
-  friendRequests:string[];
+  friendRequests:[friendRequestInterface];
 }
 
 // Capsule Schema
@@ -85,7 +88,7 @@ const CronosUserSchema = new Schema<CronosUserSchemaInterface>({
   friends: { type: [String], default: [] },
   isPrivateAccount: { type: Boolean, default: false },
   allCapsules: { type: [CronosCapsuleSchema], default: [] },
-  friendRequests:{type:[String],default:[]}
+  friendRequests:{default:[]}
 });
 
 // Models

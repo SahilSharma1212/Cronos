@@ -5,7 +5,7 @@ export function middleware(request: NextRequest) {
   const token = request.cookies.get("token")?.value;
   const path = request.nextUrl.pathname;
 
-  const isMainRoute = path.startsWith("/main");
+  const isMainRoute = path.startsWith("/main/profile");
   const isSignInPage = path === "/sign-in";
 
 
@@ -24,5 +24,5 @@ export function middleware(request: NextRequest) {
 
 // Apply middleware to both protected routes and sign-in page
 export const config = {
-  matcher: ["/main/:path*", "/sign-in"],
+  matcher: ["/main/:path*"],
 };
