@@ -1,6 +1,7 @@
 "use client";
 
 import axios from "axios";
+import { Suspense } from "react";
 import { Loader2 } from "lucide-react";
 import Image from "next/image";
 import React, { useRef, useState } from "react";
@@ -80,6 +81,7 @@ export default function Page() {
   };
 
   return (
+    <Suspense fallback={<div className="text-white">Loading...</div>}>
     <div className="h-[100vh] w-[100vw] flex justify-center items-center bg-[#0e0e0e]">
       <div className="verify-code-box p-10 border border-gray-500 flex flex-col items-center justify-center gap-6 rounded-2xl max-sm:scale-75 max-sm:px-3 max-sm:py-7">
         <Image
@@ -121,6 +123,6 @@ export default function Page() {
         </button>
       </div>
       <Toaster />
-    </div>
+    </div></Suspense>
   );
 }
